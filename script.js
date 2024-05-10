@@ -1,31 +1,26 @@
 // Selects "container" in HTML file
 const container = document.querySelector("#container");
 
-// Creates new element of tag type (only creates in memory)
-const square = document.createElement("div");
-const square1 = document.createElement("div");
+// Initialize array
+const square = [];
 
-// Apply styling to square
-square.classList.add("square");
-square1.classList.add("square");
+// Will need to change "i" to be user prompt for number of square
+for (let i = 0; i < 17; i++) {
+    // Creates new element of tag type (only creates in memory)
+    square[i] = document.createElement("div");
 
-// Changes the styling element for square
-square.addEventListener("mouseenter", function() {
-    this.style.backgroundColor = "red";
-})
+    // Apply Styling to square
+    square[i].classList.add("square");
 
-square.addEventListener("mouseleave", function() {
-    this.style.backgroundColor = "aquamarine";
-})
+    // Changes the styling for square
+    square[i].addEventListener("mouseenter", function() {
+        this.style.backgroundColor = "red";
+    })
 
-square1.addEventListener("mouseenter", function() {
-    this.style.backgroundColor = "red";
-})
+    square[i].addEventListener("mouseleave", function() {
+        this.style.backgroundColor = "blue";
+    })
 
-square1.addEventListener("mouseleave", function() {
-    this.style.backgroundColor = "aquamarine";
-})
-
-// Applies element in HTML
-container.append(square);
-container.append(square1);
+    // Applies element into HTML
+    container.append(square[i]);
+}
