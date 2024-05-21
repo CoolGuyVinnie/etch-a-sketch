@@ -8,16 +8,17 @@ let gridNum;
 
 // Function for submittal of grids
 btn.addEventListener("click", function() {
+    // Clears previous HTML
     container.innerHTML = '';
 
+    // Selects what is in the user input
     gridNum = document.getElementById("grids").value;
 
     if (gridNum > 64) {
-        alert("Please select a number below 64");
+        alert("Please select a number less than or equal to 64");
         return;
     }
 
-    // Will need to change "i" to be user prompt for number of square
     for (let i = 0; i < gridNum; i++) {
     // Creates new element of tag type (only creates in memory)
     rows[i] = document.createElement("div");
