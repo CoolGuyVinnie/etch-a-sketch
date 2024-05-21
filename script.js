@@ -1,11 +1,24 @@
-// Selects "container" in HTML file
+// Selects IDs in HTML file
 const container = document.querySelector("#container");
+const btn = document.querySelector("#submit");
 
 // Initializers
 const rows = [];
+let gridNum;
 
-// Will need to change "i" to be user prompt for number of square
-for (let i = 0; i < 2; i++) {
+// Function for submittal of grids
+btn.addEventListener("click", function() {
+    container.innerHTML = '';
+
+    gridNum = document.getElementById("grids").value;
+
+    if (gridNum > 64) {
+        alert("Please select a number below 64");
+        return;
+    }
+
+    // Will need to change "i" to be user prompt for number of square
+    for (let i = 0; i < gridNum; i++) {
     // Creates new element of tag type (only creates in memory)
     rows[i] = document.createElement("div");
 
@@ -13,7 +26,7 @@ for (let i = 0; i < 2; i++) {
     rows[i].classList.add("row");
 
     // Creates columns
-    for (let j = 0; j < 3; j++) {
+    for (let j = 0; j < gridNum; j++) {
         const square = document.createElement("div");
         square.classList.add("square");
 
@@ -31,3 +44,6 @@ for (let i = 0; i < 2; i++) {
     // Applies element into HTML
     container.append(rows[i]);
 }
+
+})
+
